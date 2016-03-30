@@ -1,0 +1,22 @@
+{
+  "name": "socket.io-chat",
+  "version": "1.0.0",
+  "description": "my first socket.io example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnyamor/socket.io-chat.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Mary Nyamor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnyamor/socket.io-chat/issues"
+  },
+  "homepage": "https://github.com/mnyamor/socket.io-chat#readme"
+}
