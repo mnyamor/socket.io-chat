@@ -18,6 +18,12 @@ app.get('/', function (req, res) {
 //listen on the connection event for incoming sockets, and log it to the console
 io.on('connection', function(socket){
     console.log('a user connected');
+
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+
+    });
+
 });
 
 http.listen(3000, function () {
