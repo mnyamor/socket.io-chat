@@ -7,7 +7,7 @@ var http = require('http').Server(app);
 
 // define a route handler / that gets called when we hit our website home.
 app.get('/', function (req, res) {
-    res.send('<h1>Hello World</h1>');
+    res.sendFile(__dirname + '/index.html');
 });
 
 http.listen(3000, function () {
