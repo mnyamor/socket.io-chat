@@ -76,15 +76,24 @@
             display: inline-block;
             clear: both;
 
-
         }
 
         .conversation-start {
             position: relative;
             width: 100%;
-            margin-bottom: 27px;
+            margin: 27px;
             text-align: center;
         }
+
+        .conversation-start #date:before {
+            border-bottom: 1px solid #ccc;
+            position: absolute;
+            content: '';
+            width: 100%;
+            color: #111;
+            font-size: 10px;
+        }
+
         .bubble.blue {
             float: left;
             color: #fff;
@@ -96,14 +105,14 @@
             animation-name: slideFromLeft;
         }
 
-         ﻿
+        ﻿
 
     </style>
-
-
 </head>
 <body>
-<div class="conversation-start"></div>
+<div class="conversation-start">
+    <span id="date"></span>
+</div>
 <ul id="messages"></ul>
 <form action="">
     <input id="m" autocomplete="off"/>
@@ -119,9 +128,13 @@
         $('#m').val('');
         return false;
     });
-    socket.on('chat message', function(msg){
+    socket.on('chat message', function (msg) {
         $('#messages').append($('<li class="bubble blue">').text(msg));
     });
+    socket.on('date', function (data) {
+        $('#date').text(data.date);
+    });
+
 </script>
 </body>
 </html>
