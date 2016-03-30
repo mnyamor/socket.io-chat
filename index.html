@@ -3,8 +3,16 @@
 <head>
     <title>Socket.IO chat</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 13px Helvetica, Arial; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 13px Helvetica, Arial;
+        }
+
         form {
             background: #e6e6e6;
             padding: 3px;
@@ -13,6 +21,7 @@
             width: 100%;
             border: 1px solid #eceff1;
         }
+
         form input {
             padding: 10px;
             border: 0;
@@ -25,17 +34,28 @@
             -webkit-border-radius: 0 0 0 5px;
             border-radius: 0 0 0 5px;
         }
+
         form button {
-            width: 9%;
             background: transparent;
             border: none;
             padding: 10px;
             color: #333;
             border-radius: 0 0 5px;
         }
-        #messages { list-style-type: none; margin: 0; padding: 0; }
-        #messages li { padding: 5px 10px; }
-        #messages li:nth-child(odd) { background: #eee; }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages li {
+            padding: 5px 10px;
+        }
+
+        #messages li:nth-child(odd) {
+            background: #eee;
+        }
     </style>
 
 
@@ -44,11 +64,20 @@
 
 <ul id="messages"></ul>
 <form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
+    <input id="m" autocomplete="off"/>
+    <button>Send</button>
 </form>
+
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
     var socket = io();
+    $('form').on('submit', function () {
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+    });
+
 </script>
 </body>
 </html>
