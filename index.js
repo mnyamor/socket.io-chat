@@ -17,14 +17,15 @@ app.get('/', function (req, res) {
 
 //listen on the connection event for incoming sockets, and log it to the console
 io.on('connection', function(socket){
-    console.log('a user connected');
+    //console.log('a user connected');
 
     socket.on('chat message', function(msg){
-        console.log('message: ' + msg);
+        io.emit('chat message', msg);
+       // console.log('message: ' + msg);
     });
 
     socket.on('disconnect', function(){
-        console.log('user disconnected');
+       // console.log('user disconnected');
 
     });
 
